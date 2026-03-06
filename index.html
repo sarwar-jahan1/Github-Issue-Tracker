@@ -4,85 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Login</title>
+
     <!-- Tailwind + Daisy -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4">
+    </script>
 </head>
 
 <body>
-    <header>
-        <nav class="mb-10">
-            <div class="navbar bg-gray-200  flex justify-between p-4 ">
-                <div class="flex gap-2 items-center ">
-                    <img class="w-9 h-9" src="./assets/github-logo.png" alt="">
-                    <p class="text-xl">GitHub Issues Tracker</p>
-                </div>
-                <div class="flex gap-2">
-                    <input type="search" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-                    <div class="">
-                        <button class="btn btn-primary font-semibold text-white"><i class="fa-solid fa-plus"></i>New
-                            Issue</button>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="shortcut icon" href="assets/login.jpg" type="image/x-icon">
+
+        <!-- Tailwind + Daisy -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body>
+
+        <main class="max-w-3xl mx-auto  flex items-center justify-center">
+
+            <section class="bg-white w-[500px] rounded-xl shadow-lg p-8">
+                <!-- Logo -->
+                <div class="flex justify-center mb-6">
+                    <div class="w-30 h-30 bg-white rounded-full flex items-center justify-center">
+                        <img src="assets/github-logo.png" class="w-20">
                     </div>
                 </div>
-            </div>
-        </nav>
-    </header>
+                <!-- Title -->
+                <div class="text-center mb-6">
+                    <h1 class="text-2xl font-bold text-gray-800">
+                        GitHub Issues Tracker
+                    </h1>
 
-    <!-- Main -->
-    <main class="w-11/12 mx-auto">
-        <section>
-            <div class="flex gap-4 p-4 shadow-sm mb-4">
-                <button id="all" class="btn btn-primary w-20">All</button>
-                <button id="open" class="btn btn-base w-20">Open</button>
-                <button id="closed" class="btn btn-base w-20">Closed</button>
-            </div>
-        </section>
-
-        <section class="mb-4">
-            <!-- Everything come to dynamically -->
-            <div class="flex gap-4 p-3 shadow-sm justify-between">
-                <div class="flex items-center gap-3">
-                    <img class="w-6 h-6" src="./assets/Aperture.png" alt="">
-                    <div class="">
-                        <h1 class="text-xl font-bold">50 Issues</h1>
-                        <p class="text-gray">Track and manage your project issues</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-6 p-2">
-
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        <p class="text-gray-700 font-medium">Open</p>
-                    </div>
-
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
-                        <p class="text-gray-700 font-medium">Closed</p>
-                    </div>
-
+                    <p class="text-gray-500 text-sm">
+                        Sign in to manage your issues
+                    </p>
                 </div>
 
-            </div>
-        </section>
+                <!-- Form -->
+                <form>
+                    <!-- Username -->
+                    <div class="mb-4">
+                        <label class="text-sm text-gray">Username</label>
+                        <input id="username" type="text" placeholder="Enter Username"
+                            class="w-full mt-1 p-3 border rounded-lg ">
+                    </div>
+                    <!-- Password -->
+                    <div class="mb-4">
+                        <label class="text-sm text-gray">Password</label>
+                        <input id="password" type="password" placeholder="Enter Password"
+                            class="w-full mt-1 p-3 border rounded-lg ">
+                    </div>
+                    <!-- Button -->
+                    <button type="button" onclick="login()" class="btn  w-full bg-[#4A00FF] text-white">Sign In
+                    </button>
+                </form>
+                <!--  _________________________or_____________________________ -->
+                <div class="flex items-center my-6">
+                    <hr class="flex-grow border-gray-300">
+                    <span class="px-3 text-gray-400 text-sm">OR</span>
+                    <hr class="flex-grow border-gray-300">
+                </div>
+                <!-- Demo Credentials -->
+                <div class="bg-gray-100 p-4 rounded-lg text-center text-sm">
+                    <p class="text-gray-500 mb-2">
+                        Demo Credentials:
+                    </p>
+                    <p><span class="font-semibold">Username:</span> admin</p>
+                    <p><span class="font-semibold">Password:</span> admin123</p>
+                </div>
+            </section>
+        </main>
 
-        <!-- Card Section -->
-        <section>
-            <div id="cardsContainer" class="grid grid-cols-4 gap-6">
-                <!-- dynamically added -->
-            </div>
+        <!-- JS -->
+        <script src="script.js"></script>
+    </body>
 
-        </section>
-    </main>
-
-    <!-- JS -->
-    <script src="script.js"></script>
+    </html>
 </body>
 
 </html>

@@ -19,25 +19,70 @@
 <body>
     <header>
         <nav class="mb-10">
-            <div class="navbar bg-base-100 shadow-sm flex justify-between p-4 ">
+            <div class="navbar bg-gray-200  flex justify-between p-4 ">
                 <div class="flex gap-2 items-center ">
                     <img class="w-9 h-9" src="./assets/github-logo.png" alt="">
                     <p class="text-xl">GitHub Issues Tracker</p>
                 </div>
                 <div class="flex gap-2">
-                    <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+                    <input type="search" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
                     <div class="">
-                        <button class="btn btn-primary">Primary</button>
+                        <button class="btn btn-primary font-semibold text-white"><i class="fa-solid fa-plus"></i>New
+                            Issue</button>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
-    
+
     <!-- Main -->
-     <main class="w-11/12 mx-auto">
-        
-     </main>
+    <main class="w-11/12 mx-auto">
+        <section>
+            <div class="flex gap-4 p-4 shadow-sm mb-4">
+                <button id="all" class="btn btn-primary w-20">All</button>
+                <button id="open" class="btn btn-base w-20">Open</button>
+                <button id="closed" class="btn btn-base w-20">Closed</button>
+            </div>
+        </section>
+
+        <section class="mb-4">
+            <!-- Everything come to dynamically -->
+            <div class="flex gap-4 p-3 shadow-sm justify-between">
+                <div class="flex items-center gap-3">
+                    <img class="w-6 h-6" src="./assets/Aperture.png" alt="">
+                    <div class="">
+                        <h1 class="text-xl font-bold">50 Issues</h1>
+                        <p class="text-gray">Track and manage your project issues</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-6 p-2">
+
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                        <p class="text-gray-700 font-medium">Open</p>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 bg-purple-500 rounded-full"></span>
+                        <p class="text-gray-700 font-medium">Closed</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Card Section -->
+        <section>
+            <div id="cardsContainer" class="grid grid-cols-4 gap-6">
+                <!-- dynamically added -->
+            </div>
+
+        </section>
+    </main>
+
+    <!-- JS -->
+    <script src="script.js"></script>
 </body>
 
 </html>

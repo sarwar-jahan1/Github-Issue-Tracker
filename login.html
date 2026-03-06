@@ -13,9 +13,87 @@
 </head>
 
 <body>
-    <main class="max-w-3xl mx-auto">
-        
-    </main>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="shortcut icon" href="assets/login.jpg" type="image/x-icon">
+
+        <!-- Tailwind + Daisy -->
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+            integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </head>
+
+    <body>
+
+        <main class="max-w-3xl mx-auto  flex items-center justify-center">
+
+            <section class="bg-white w-[500px] rounded-xl shadow-lg p-8">
+                <!-- Logo -->
+                <div class="flex justify-center mb-6">
+                    <div class="w-30 h-30 bg-white rounded-full flex items-center justify-center">
+                        <img src="assets/github-logo.png" class="w-20">
+                    </div>
+                </div>
+                <!-- Title -->
+                <div class="text-center mb-6">
+                    <h1 class="text-2xl font-bold text-gray-800">
+                        GitHub Issues Tracker
+                    </h1>
+
+                    <p class="text-gray-500 text-sm">
+                        Sign in to manage your issues
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <form>
+                    <!-- Username -->
+                    <div class="mb-4">
+                        <label class="text-sm text-gray">Username</label>
+                        <input id="username" type="text" placeholder="Enter Username"
+                            class="w-full mt-1 p-3 border rounded-lg ">
+                    </div>
+                    <!-- Password -->
+                    <div class="mb-4">
+                        <label class="text-sm text-gray">Password</label>
+                        <input id="password" type="password" placeholder="Enter Password"
+                            class="w-full mt-1 p-3 border rounded-lg ">
+                    </div>
+                    <!-- Button -->
+                    <button type="button" onclick="login()" class="btn  w-full bg-[#4A00FF] text-white">Sign In
+                    </button>
+                </form>
+                <!--  _________________________or_____________________________ -->
+                <div class="flex items-center my-6">
+                    <hr class="flex-grow border-gray-300">
+                    <span class="px-3 text-gray-400 text-sm">OR</span>
+                    <hr class="flex-grow border-gray-300">
+                </div>
+                <!-- Demo Credentials -->
+                <div class="bg-gray-100 p-4 rounded-lg text-center text-sm">
+                    <p class="text-gray-500 mb-2">
+                        Demo Credentials:
+                    </p>
+                    <p><span class="font-semibold">Username:</span> admin</p>
+                    <p><span class="font-semibold">Password:</span> admin123</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- JS -->
+        <script src="script.js"></script>
+    </body>
+
+    </html>
 </body>
 
 </html>

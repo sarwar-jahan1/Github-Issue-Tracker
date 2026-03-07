@@ -39,7 +39,7 @@
     <main class="w-11/12 mx-auto">
         <section>
             <div class="flex gap-4 p-4 shadow-sm mb-4">
-                <button id="all" class="btn btn-primary w-20">All</button>
+                <button id="all" class="btn w-20">All</button>
                 <button id="open" class="btn btn-base w-20">Open</button>
                 <button id="closed" class="btn btn-base w-20">Closed</button>
             </div>
@@ -51,7 +51,9 @@
                 <div class="flex items-center gap-3">
                     <img class="w-6 h-6" src="./assets/Aperture.png" alt="">
                     <div class="">
-                        <h1 class="text-xl font-bold">50 Issues</h1>
+                        <h2 class="text-xl font-semibold">
+                            <span id="issueCount">0</span> Issues
+                        </h2>
                         <p class="text-gray">Track and manage your project issues</p>
                     </div>
                 </div>
@@ -80,6 +82,8 @@
 
         </section>
     </main>
+
+
 
     <!-- JS -->
     <script src="script.js"></script>

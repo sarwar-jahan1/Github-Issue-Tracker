@@ -27,6 +27,8 @@ let currentFilter = "all";
 
 const buttons = [allButton, openButton, closedButton];
 
+
+// loading
 function showLoading(){
     loadingSpinner.classList.remove("hidden");
     cardsContainer.innerHTML = "";
@@ -46,10 +48,20 @@ function setActiveButton(activeBtn){
     activeBtn.classList.add("bg-blue-600","text-white");
 }
 
+
+// search
 searchBtn.addEventListener("click",()=>{
     applyFilters();
 });
 
+searchInput.addEventListener("keydown",(e)=>{
+    if(e.key==="Enter"){
+        applyFilters();
+    }
+});
+
+
+// filter buttons
 allButton.addEventListener("click",()=>{
     currentFilter="all";
     setActiveButton(allButton);
@@ -68,6 +80,8 @@ closedButton.addEventListener("click",()=>{
     applyFilters();
 });
 
+
+// filter logic
 function applyFilters(){
 
     showLoading();
@@ -92,6 +106,7 @@ function applyFilters(){
     }
 
     displayCards(filtered);
+
     hideLoading();
 }
 
@@ -110,6 +125,95 @@ async function loadCards(){
 
     hideLoading();
     setActiveButton(allButton);
+}
+
+
+// open modal
+function openIssueModal(issue){
+
+const modalContent = document.getElementById("modalContent");
+
+let priorityColor="";
+
+if(issue.priority==="high"){
+    priorityColor="bg-red-500 text-white";
+}
+else if(issue.priority==="medium"){
+    priorityColor="bg-yellow-500 text-white";
+}
+else{
+    priorityColor="bg-gray-500 text-white";
+}
+
+let statusColor="";
+
+if(issue.status==="open"){
+    statusColor="bg-green-100 text-green-700";
+}
+else{
+    statusColor="bg-purple-100 text-purple-700";
+}
+
+modalContent.innerHTML = `
+<h3 class="text-2xl font-bold mb-2">${issue.title}</h3>
+
+<div class="flex items-center gap-3 text-sm text-gray-600 mb-4">
+
+<span class="${statusColor} px-3 py-1 rounded-full font-medium">
+${issue.status}
+</span>
+
+<span>•</span>
+
+<p>Opened by ${issue.author}</p>
+
+<span>•</span>
+
+<p>${issue.updatedAt}</p>
+
+</div>
+
+<div class="flex gap-3 mb-4">
+
+<span class="border border-red-300 text-red-500 px-3 py-1 text-xs rounded-full">
+<i class="fa-solid fa-bug"></i> BUG
+</span>
+
+<span class="border border-yellow-400 text-yellow-600 px-3 py-1 text-xs rounded-full">
+<i class="fa-regular fa-life-ring"></i> HELP WANTED
+</span>
+
+</div>
+
+<p class="text-gray-600 mb-6">
+${issue.description}
+</p>
+
+<div class="flex justify-between items-center bg-gray-100 rounded-lg p-4 mb-6">
+
+<div>
+<p class="text-sm text-gray-500">Assignee:</p>
+<p class="font-semibold">${issue.author}</p>
+</div>
+
+<div>
+<p class="text-sm text-gray-500">Priority:</p>
+<span class="${priorityColor} px-3 py-1 text-xs rounded-full">
+${issue.priority}
+</span>
+</div>
+
+</div>
+
+<div class="flex justify-end">
+<button onclick="issueModal.close()" class="btn btn-primary">
+Close
+</button>
+</div>
+`;
+
+document.getElementById("issueModal").showModal();
+
 }
 
 
@@ -145,7 +249,7 @@ function displayCards(issues){
             borderColor="border-purple-500";
         }
 
-        card.className=`bg-white rounded-lg shadow border-t-4 ${borderColor} flex flex-col`;
+        card.className=`bg-white rounded-lg shadow border-t-4 ${borderColor} flex flex-col cursor-pointer`;
 
         card.innerHTML=`
         <div class="p-5 flex flex-col flex-1">
@@ -181,6 +285,9 @@ function displayCards(issues){
             <p>${issue.updatedAt}</p>
         </div>
         `;
+        card.addEventListener("click",()=>{
+            openIssueModal(issue);
+        });
 
         cardsContainer.appendChild(card);
     });

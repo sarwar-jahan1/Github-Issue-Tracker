@@ -25,11 +25,19 @@
                     <p class="text-xl">GitHub Issues Tracker</p>
                 </div>
                 <div class="flex gap-2">
-                    <input type="search" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
-                    <div class="">
-                        <button class="btn btn-primary font-semibold text-white"><i class="fa-solid fa-plus"></i>New
-                            Issue</button>
+                    <div class="relative w-60">
+
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2"></i>
+
+                        <input id="searchInput" type="search" placeholder="Search issues..."
+                            class="input input-bordered w-full pl-10" />
+
                     </div>
+
+                    <button id="searchBtn" class="btn btn-primary text-white">
+                        <i class="fa-solid fa-plus"></i>
+                        New Issues
+                    </button>
                 </div>
             </div>
         </nav>
@@ -37,6 +45,8 @@
 
     <!-- Main -->
     <main class="w-11/12 mx-auto">
+
+        <!-- filter buttons -->
         <section>
             <div class="flex gap-4 p-4 shadow-sm mb-4">
                 <button id="all" class="btn w-20">All</button>
@@ -45,18 +55,20 @@
             </div>
         </section>
 
+        <!-- issue header -->
         <section class="mb-4">
-            <!-- Everything come to dynamically -->
             <div class="flex gap-4 p-3 shadow-sm justify-between">
+
                 <div class="flex items-center gap-3">
                     <img class="w-6 h-6" src="./assets/Aperture.png" alt="">
-                    <div class="">
+                    <div>
                         <h2 class="text-xl font-semibold">
                             <span id="issueCount">0</span> Issues
                         </h2>
                         <p class="text-gray">Track and manage your project issues</p>
                     </div>
                 </div>
+
                 <div class="flex items-center gap-6 p-2">
 
                     <div class="flex items-center gap-2">
@@ -74,19 +86,114 @@
             </div>
         </section>
 
-        <!-- Card Section -->
+
+        <!-- card section -->
         <section>
+
+            <div id="loadingSpinner" class="flex h-[60vh] hidden justify-center items-center">
+                <span class="loading loading-dots loading-xl"></span>
+            </div>
+
             <div id="cardsContainer" class="grid grid-cols-4 gap-6">
-                <!-- dynamically added -->
+                <!-- cards dynamically -->
             </div>
 
         </section>
-    </main>
 
+
+        <!-- MODAL (main এর শেষে) -->
+        <dialog id="issueModal" class="modal">
+
+            <div class="modal-box max-w-2xl">
+
+                <!-- Title -->
+                <h3 id="modalTitle" class="text-2xl font-bold mb-2">
+                    Fix broken image uploads
+                </h3>
+
+                <!-- Status + author -->
+                <div class="flex items-center gap-3 text-sm text-gray-600 mb-4">
+
+                    <span id="modalStatus" class="bg-green-100 text-green-700 px-3 py-1 rounded-full font-medium">
+                        Opened
+                    </span>
+
+                    <span>•</span>
+
+                    <p>
+                        Opened by <span id="modalAuthor">Fahim Ahmed</span>
+                    </p>
+
+                    <span>•</span>
+
+                    <p id="modalDate">22/02/2026</p>
+
+                </div>
+
+
+                <!-- Labels -->
+                <div class="flex gap-3 mb-4">
+
+                    <span class="border border-red-300 text-red-500 px-3 py-1 text-xs rounded-full">
+                        <i class="fa-solid fa-bug"></i>
+                        BUG
+                    </span>
+
+                    <span class="border border-yellow-400 text-yellow-600 px-3 py-1 text-xs rounded-full">
+                        <i class="fa-regular fa-life-ring"></i>
+                        HELP WANTED
+                    </span>
+
+                </div>
+
+
+                <!-- Description -->
+                <p id="modalDescription" class="text-gray-600 mb-6">
+                    The navigation menu doesn't collapse properly on mobile devices.
+                    Need to fix the responsive behavior.
+                </p>
+
+
+                <!-- Assignee + Priority -->
+                <div class="flex justify-between items-center bg-gray-100 rounded-lg p-4 mb-6">
+
+                    <div>
+                        <p class="text-sm text-gray-500">Assignee:</p>
+                        <p id="modalAssignee" class="font-semibold">
+                            Fahim Ahmed
+                        </p>
+                    </div>
+
+                    <div>
+                        <p class="text-sm text-gray-500">Priority:</p>
+
+                        <span id="modalPriority" class="bg-red-500 text-white px-3 py-1 text-xs rounded-full">
+                            HIGH
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Close Button -->
+                <div class="flex justify-end">
+                    <button onclick="issueModal.close()" class="btn btn-primary">
+                        Close
+                    </button>
+                </div>
+
+            </div>
+
+        </dialog>
+
+    </main>
 
 
     <!-- JS -->
     <script src="script.js"></script>
+
+
 </body>
 
 </html>
